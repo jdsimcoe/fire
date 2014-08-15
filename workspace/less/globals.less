@@ -1,0 +1,34 @@
+// Globals
+// ================================================
+
+* {
+  text-rendering: optimizeLegibility !important;
+  -webkit-text-size-adjust: none !important;
+}
+
+html, body{
+  height: 100%;
+}
+
+body {
+  color: lighten(@color-black, 20%);
+  image-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: @font-kulturista;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}

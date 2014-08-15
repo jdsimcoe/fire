@@ -1,0 +1,85 @@
+// Navbar
+// ================================================
+
+@navbar-height: 85px;
+@navbar-border-radius: 0;
+@navbar-margin-bottom: 0;
+
+.navbar {
+
+  .top-nav{
+    position: relative;
+    top: 3rem;
+    list-style: none;
+    text-align: center;
+
+    &> li {
+      display: inline-block;
+      font-family: @font-proxima;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.4rem;
+      text-transform: uppercase;
+      list-style-type: none;
+
+      &.active a {
+        color: @color1;
+        border-bottom: 2px solid darken(@color-white, 10%);
+      }
+
+      a {
+        margin: 0 2rem;
+        padding: 0.5rem 0;
+        color: lighten(@color-black, 40%);
+
+        &:hover {
+          color: @brand-primary;
+        }
+      }
+
+      i {
+        font-size: 1.35rem;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+
+          a {
+            margin: 0;
+            padding: 0.5rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+
+    @media (max-width: @screen-sm) {
+      clear: both;
+      display: block;
+      margin-bottom: 0;
+      top: 0;
+
+      li {
+        display: block;
+
+        a {
+          display: inline-block;
+          padding: 1.5rem 0;
+        }
+
+        &.active {
+          a {
+            border: none;
+          }
+        }
+      }
+    }
+
+  }
+
+}

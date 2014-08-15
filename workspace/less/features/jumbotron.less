@@ -1,0 +1,52 @@
+// Jumbotron
+// ================================================
+
+.jumbotron {
+  margin: 0;
+  #gradient > .vertical(@color1; @color2; 0%; 75%;);
+  color: @color-white;
+  text-align: center;
+
+  .logo {
+    display: block;
+    margin: 0 auto;
+    height: 205px;
+    width: 240px;
+    text-indent: -9999px;
+    .img-retina("/workspace/img/fire-logo.png", "/workspace/img/fire-logo_@2x.png", 240px, 205px);
+  }
+
+  .tagline {
+    margin-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    text-shadow: 2px 2px 2px darken(@color2, 5%);
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-top: 2rem;
+      padding-left: 15rem;
+      padding-right: 15rem;
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: @screen-sm) {
+      margin-top: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      h2 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+}
