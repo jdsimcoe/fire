@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   'use strict';
 
   grunt.initConfig({
+    globalConfig: globalConfig,
     pkg: grunt.file.readJSON('package.json'),
 
     less: {
