@@ -41,9 +41,10 @@
         </xsl:choose>
         <xsl:text>.&#160;</xsl:text>
         <xsl:value-of select="$website-name"/>
-        <xsl:text> All rights reserved.</xsl:text>
-        <xsl:text>&#160;&#160;•&#160;&#160;Designed &amp; coded by </xsl:text>
-        <a href="http://simko.io/" target="_blank"><strong>Simko.io</strong></a>
+        <xsl:text>. All rights reserved.&#160;&#160;•&#160;&#160;</xsl:text>
+        <a href="https://plus.google.com/108415741477626522676" rel="publisher">Google+</a>
+        <xsl:text>&#160;&#160;•&#160;&#160;Web Design by </xsl:text>
+        <a href="http://simko.io/" target="_blank" class="design-logo">&#160;<img alt="Simko Design" class="logo" src="{$workspace}/img/simko-design.svg"  height="30px"/></a>
        </p>
     </div>
 
@@ -57,3 +58,4 @@
 
 
 </xsl:stylesheet>
+
