@@ -1,9 +1,6 @@
 .DS_Store
 *.sublime-*
-manifest/cache/*
-manifest/logs/*
-manifest/tmp/*
-manifest/config.php
+manifest/
 node_modules/
 workspace/uploads/images/*.jpg
 workspace/uploads/images/*.jpeg
