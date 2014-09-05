@@ -1,6 +1,6 @@
 # Image Preview
 
-Version 2.0
+Version 2.2
 
 ### Makes upload fields show a preview of the file in the backend if it is an image 
 
@@ -22,7 +22,8 @@ To enable those settings for all fields, type '*' as field hanlde.
 
 - Upload field
 - Image upload field
-- Multilingual field upload
+- Multilingual upload field 
+- Multilingual image upload
 - Unique upload field
 
 Voila !

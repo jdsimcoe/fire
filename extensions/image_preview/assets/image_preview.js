@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Image Preview
  * 
  * @author Deux Huit Huit
@@ -10,29 +10,28 @@
 	
 	"use strict";
 
-	var 
+	var optionsSelector = '.field-image_preview_settings';
 	
-	optionsSelector = '.field-image_preview_settings',
+	var selectors = '.field-upload .field-image_upload .field-uniqueupload .field-multilingual_upload_field .field-multilingual_image_upload'.split(' ');
 	
-	selectors = '.field-upload .field-image_upload .field-uniqueupload .field-multilingual_image_upload'.split(' '),
-	
-	defaultValues = {
+	var defaultValues = {
 		width: 40,
 		height: 0,
 		resize: 1,
 		position: 5,
 		absolute: false,
 		isDefault: true
-	},
+	};
 	
-	defaultParameters = {
+	var params = {
 		table: $.extend({}, defaultValues),
+		associations: $.extend({}, defaultValues),
 		entry: $.extend({}, defaultValues, {width: 100}),
-	},
+	};
 	
-	WORKSPACE = 'workspace',
+	var WORKSPACE = 'workspace';
 	
-	createUrl = function (imgSrc, params) {
+	var createUrl = function (imgSrc, params) {
 		
 		var newSrc = 'image/{resize}/{width}/{height}{position}';
 		
@@ -48,13 +47,13 @@
 		}
 		
 		return newSrc;
-	},
+	};
 	
-	getParameters = function (classes, defaults) {
+	var getParameters = function (classes, defaults) {
 		var params = $.extend({}, defaults);
 		
-		$.each(classes, function _forEachClass() {
-			var node = $(optionsSelector).find('*[data-field-classes*="' + this + '"]');
+		$.each(classes, function _forEachClass(index, val) {
+			var node = $(optionsSelector).find('*[data-field-classes*="' + val + '"]');
 			
 			if (!node.length) {
 				// no param found, try a param valid for all
@@ -83,20 +82,24 @@
 		});
 		
 		return params;
-	},
+	};
 	
-	addImage = function(t, defaults) {
+	var addImage = function(t, defaults) {
 		if (!t || !t.length) { 
 			return t;
 		}
 		
 		return t.each(function _eachField() {
-			var container = $(this),
-				img = new Image(),
-				a = container.find('a'),
-				imgSrc = a.attr('data-path') || a.attr('href'),
-				classes = (a.closest('td').attr('class') || a.closest('div[id]').attr('id')  || '').split(' '),
-				_imageLoaded = function  (e, p, src) {
+			var container = $(this);
+			var a = container.find('a');
+			
+			a.each(function (i, a) {
+				a = $(a);
+				
+				var img = new Image();
+				var imgSrc = a.attr('data-path') || a.attr('href');
+				var classes = (a.closest('td').attr('class') || a.closest('div[id]').attr('id')  || '').split(' ');
+				var _imageLoaded = function  (e, p, src) {
 					var lcss = {padding:0},
 						i = $('<img />').attr('src', src);
 					
@@ -107,21 +110,26 @@
 					a.css(lcss).empty().append(i);
 				};
 				
-			if (!!imgSrc && !!classes.length) {
+				if (!!imgSrc && !!classes.length) {
+					// check we have the full path
+					if (!~imgSrc.indexOf('.')) {
+						imgSrc += '/' + a.text();
+					}
+					
+					var p = getParameters(classes, defaults);
+					var url = createUrl(imgSrc, p);
+					
+					// bind load event
+					$(img).load(function (e) { _imageLoaded(e, p, this.src); });
 				
-				var p = getParameters(classes, defaults),
-					url = createUrl(imgSrc, p);
-				
-				// bind load event
-				$(img).load(function (e) { _imageLoaded(e, p, this.src); });
-			
-				// load the image
-				img.src = url;
-			}
+					// load the image
+					img.src = url;
+				}
+			});
 		});
-	},
+	};
 
-	init = function () {
+	var init = function () {
 		
 		// hide field
 		var fields = $(optionsSelector);
@@ -141,10 +149,13 @@
 			var sel = this;
 			
 			// list view
-			addImage($('td' + sel), defaultParameters.table);
+			addImage($('td' + sel), params.table);
 			
 			// detail view
-			addImage($('div' + sel), defaultParameters.entry);
+			addImage($('div' + sel), params.entry);
+			
+			// association view
+			addImage($('li' + sel), params.associations);
 		});
 	};
 	
