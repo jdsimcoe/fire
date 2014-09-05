@@ -6,4 +6,4 @@ workspace/uploads/images/*.jpg
 workspace/uploads/images/*.jpeg
 workspace/uploads/images/*.png
 workspace/uploads/images/*.gif
-utilities/
+/utilities/
