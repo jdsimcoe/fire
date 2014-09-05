@@ -280,7 +280,7 @@
 
 						if (is_array($field_data) === false || empty($field_data)) continue;
 
-						// Get unformatted content:
+						// The field is exportable:
 						if (
 							$field instanceof ExportableField
 							&& in_array(ExportableField::UNFORMATTED, $field->getExportModes())
@@ -290,17 +290,7 @@
 							);
 						}
 
-						// Get values:
-						if (
-							$field instanceof ExportableField
-							&& in_array(ExportableField::VALUE, $field->getExportModes())
-						) {
-							$value = $field->prepareExportValue(
-								$field_data, ExportableField::VALUE, $entry->get('id')
-							);
-						}
-						
-						// Handle fields that are not exportable:
+						// Nasty hack:
 						else {
 							$value = $field->getParameterPoolValue(
 								$field_data, $entry->get('id')
@@ -514,12 +504,8 @@
 			if(!empty($states)){
 				foreach($states as $s){
 					$group = array('label' => $s['name'], 'options' => array());
-					if (count($s['values']) == 0) {
-						$group['options'][] = array(null, false, __('None found.'), null, null, array('disabled' => 'disabled'));
-					} else {
-						foreach($s['values'] as $id => $v){
-							$group['options'][] = array($id, in_array($id, $entry_ids), General::sanitize($v));
-						}
+					foreach($s['values'] as $id => $v){
+						$group['options'][] = array($id, in_array($id, $entry_ids), General::sanitize($v));
 					}
 					$options[] = $group;
 				}
@@ -547,10 +533,15 @@
 			$result = array();
 
 			if(!is_array($data)) {
-				$result['relation_id'] = ((int)$data === 0) ? null : (int)$data;
+				return array('relation_id' => (int)$data);
 			}
-			else foreach($data as $a => $value) {
-				$result['relation_id'][] = ((int)$data[$a] === 0) ? null : (int)$data[$a];
+
+			if(empty($data)) {
+				return null;
+			}
+
+			foreach($data as $a => $value) {
+				$result['relation_id'][] = (int)$data[$a];
 			}
 
 			return $result;

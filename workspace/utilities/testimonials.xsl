@@ -17,16 +17,16 @@
         </blockquote>
           <xsl:if test="/data/projects-all/entry[testimonials/item/@id = $testimonial-id]">
             <hr/>
+            <p>
+              <small>
+              <xsl:text>This testimonial is featured in the following project(s): </xsl:text>
+                <xsl:for-each select="/data/projects-all/entry[testimonials/item/@id = $testimonial-id]">
+                  <a href="/projects/#{title/@handle}"><xsl:value-of select="title"/></a>
+                  <xsl:if test="position() != last()"> ,</xsl:if>
+                </xsl:for-each>
+              </small>
+            </p>
           </xsl:if>
-          <p>
-            <small>
-            <xsl:text>This testimonial is featured in the following project(s): </xsl:text>
-              <xsl:for-each select="/data/projects-all/entry[testimonials/item/@id = $testimonial-id]">
-                <a href="/projects/#{title/@handle}"><xsl:value-of select="title"/></a>
-                <xsl:if test="position() != last()"> ,</xsl:if>
-              </xsl:for-each>
-            </small>
-          </p>
 
       </div>
     </div>
