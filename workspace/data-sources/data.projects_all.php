@@ -32,20 +32,20 @@ class datasourceprojects_all extends SectionDatasource
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
-        'testimonials' => array(
-            'section_id' => '25',
-            'field_id' => '148',
-            'elements' => array(
-                'name',
-                'content: formatted'
-            )
-        ),
         'images' => array(
             'section_id' => '22',
             'field_id' => '156',
             'elements' => array(
                 'caption',
                 'image'
+            )
+        ),
+        'testimonials' => array(
+            'section_id' => '25',
+            'field_id' => '148',
+            'elements' => array(
+                'name',
+                'content: formatted'
             )
         )
     );
@@ -65,7 +65,7 @@ class datasourceprojects_all extends SectionDatasource
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.0-rc.2',
-            'release-date' => '2014-09-04T23:50:36+00:00'
+            'release-date' => '2014-09-12T19:30:23+00:00'
         );
     }
 

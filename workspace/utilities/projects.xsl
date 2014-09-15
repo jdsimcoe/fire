@@ -47,7 +47,7 @@
             <xsl:choose>
               <xsl:when test="count(images/item) = 1">
                 <div class="image image-single">
-                  <img class="img-responsive" src="{$root}/image/2/1500/900/2/0/uploads/images/{images/item/image/file/filename}" alt="{caption}"/>
+                  <img class="img-responsive" src="{images/item/image/@url}" alt="{image/item/image/caption}"/>
                 </div>
               </xsl:when>
               <xsl:otherwise>
@@ -78,7 +78,7 @@
                               <xsl:otherwise>item</xsl:otherwise>
                             </xsl:choose>
                           </xsl:attribute>
-                          <img src="{$root}/image/2/1500/900/2/0/uploads/images/{image/file/filename}" alt="{caption}"/>
+                          <img src="{images/item/image/@url}" alt="{image/item/image/caption}"/>
                           <div class="carousel-caption">
                             <h4><xsl:value-of select="title"/></h4>
                             <p><xsl:value-of select="caption"/></p>

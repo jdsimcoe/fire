@@ -23,7 +23,7 @@ php_value memory_limit 2000M
   </FilesMatch>
 </IfModule>
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # CORS-enabled images (@crossorigin)
 # ----------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ AddType application/octet-stream            safariextz
 AddType application/x-web-app-manifest+json webapp
 AddType text/x-vcard                        vcf
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Gzip compression
 # ----------------------------------------------------------------------
 
@@ -147,7 +147,7 @@ AddType text/x-vcard                        vcf
 
 </IfModule>
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Expires headers (for better cache control)
 # ----------------------------------------------------------------------
 
@@ -210,7 +210,7 @@ AddType text/x-vcard                        vcf
 
 </IfModule>
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
 
@@ -224,7 +224,7 @@ AddType text/x-vcard                        vcf
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Suppress or force the "www." at the beginning of URLs
 # ----------------------------------------------------------------------
 
@@ -251,25 +251,13 @@ FileETag None
   RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
-	# ----------------------------------------------------------------------
-# Forward support.atheycreek.com to GrooveHQ
 # ----------------------------------------------------------------------
-
-	<IfModule !mod_rewrite.c>
-	SetEnv HTTP_MOD_REWRITE No
-</IfModule>
-
-<IfModule mod_rewrite.c>
-  RedirectMatch 301 support.atheycreek.com(.*) accf.groovehq.com/$1
-</IfModule>
-
-	# ----------------------------------------------------------------------
 # Symphony 2.3.x
 # ----------------------------------------------------------------------
 
 Options +FollowSymlinks -Indexes
 
-	<IfModule !mod_rewrite.c>
+<IfModule !mod_rewrite.c>
 	SetEnv HTTP_MOD_REWRITE No
 </IfModule>
 
@@ -289,11 +277,9 @@ Options +FollowSymlinks -Indexes
   RewriteCond %{REQUEST_FILENAME} favicon.ico [NC]
   RewriteRule .* - [S=14]
 
-  
 	### IMAGE RULES
 	RewriteRule ^image\/(.+)$ extensions/jit_image_manipulation/lib/image.php?param=$1 [B,L,NC]
 
-	  
   ### CHECK FOR TRAILING SLASH - Will ignore files
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_URI} !/$
@@ -317,7 +303,7 @@ Options +FollowSymlinks -Indexes
 
 </IfModule>
 
-	# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Block Bad Bots
 # ----------------------------------------------------------------------
 
