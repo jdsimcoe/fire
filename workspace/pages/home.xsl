@@ -18,27 +18,22 @@
 
 
 <xsl:template match="structure-url/entry" mode="main">
+  <xsl:value-of select="content" disable-output-escaping="yes" />
   <xsl:choose>
     <xsl:when test="slug/@handle = 'contact'">
-      <xsl:value-of select="content" disable-output-escaping="yes" />
       <xsl:call-template name="contact-form" />
     </xsl:when>
     <xsl:when test="slug/@handle = 'projects'">
-      <xsl:value-of select="content" disable-output-escaping="yes" />
       <xsl:apply-templates select="/data/projects-all" mode="main"/>
     </xsl:when>
-    <xsl:when test="slug/@handle = 'endorsements'">
-      <xsl:value-of select="content" disable-output-escaping="yes" />
-      <xsl:apply-templates select="/data/endorsements-all" mode="main"/>
+    <xsl:when test="slug/@handle = 'references'">
+      <xsl:call-template name="references"/>
     </xsl:when>
     <xsl:when test="slug/@handle = 'testimonials'">
-      <xsl:value-of select="content" disable-output-escaping="yes" />
       <xsl:apply-templates select="/data/testimonials-all" mode="main"/>
     </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="content" disable-output-escaping="yes" />
-    </xsl:otherwise>
   </xsl:choose>
+
 </xsl:template>
 
 

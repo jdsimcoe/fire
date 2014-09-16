@@ -28,7 +28,6 @@
     <link rel="apple-touch-icon-precomposed" href="{$root}/apple-touch-icon-precomposed.png" />
 
     <link href="{$workspace}/build/main.css" rel="stylesheet" />
-<!--     <link href="{$root}/custom/" rel="stylesheet" /> -->
 
     <xsl:call-template name="typekit"/>
 

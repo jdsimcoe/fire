@@ -2,10 +2,10 @@
 
 require_once TOOLKIT . '/class.datasource.php';
 
-class datasourceprojects_all extends SectionDatasource
+class datasourcereferences_all extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'projects-all';
-		public $dsParamConditionalizer = '(if any of ((if value of ({$pt1}) is (projects)), (if value of ({$pt1}) is (testimonials))) is (yes))';
+    public $dsParamROOTELEMENT = 'references-all';
+		public $dsParamConditionalizer = '(if value of ({$pt1}) is (references))';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -14,38 +14,29 @@ class datasourceprojects_all extends SectionDatasource
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
     public $dsParamSORT = 'system:id';
-    public $dsParamHTMLENCODE = 'yes';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamFILTERS = array(
-        '144' => 'yes',
+        '172' => 'yes',
     );
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'short',
-        'title',
-        'content: formatted',
-        'testimonials',
-        'images',
-        'city',
-        'state'
+        'organization',
+        'contact-name',
+        'email',
+        'website',
+        'phone',
+        'content: unformatted',
+        'logo'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
-        'images' => array(
+        'logo' => array(
             'section_id' => '22',
             'field_id' => '156',
             'elements' => array(
                 'caption',
                 'image'
-            )
-        ),
-        'testimonials' => array(
-            'section_id' => '25',
-            'field_id' => '148',
-            'elements' => array(
-                'name',
-                'content: formatted'
             )
         )
     );
@@ -59,19 +50,19 @@ class datasourceprojects_all extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Projects: All',
+            'name' => 'References: All',
             'author' => array(
                 'name' => 'Jonathan Simcoe',
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.0-rc.2',
-            'release-date' => '2014-09-15T23:50:33+00:00'
+            'release-date' => '2014-09-16T21:42:27+00:00'
         );
     }
 
     public function getSource()
     {
-        return '24';
+        return '26';
     }
 
     public function allowEditorToParse()

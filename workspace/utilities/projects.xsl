@@ -45,6 +45,7 @@
               <xsl:value-of select="city"/>, <xsl:value-of select="state"/>
             </h4>
             <xsl:choose>
+              <xsl:when test="count(images/item) = 0"></xsl:when>
               <xsl:when test="count(images/item) = 1">
                 <div class="image image-single">
                   <img class="img-responsive" src="{images/item/image/@url}" alt="{image/item/image/caption}"/>
@@ -78,7 +79,7 @@
                               <xsl:otherwise>item</xsl:otherwise>
                             </xsl:choose>
                           </xsl:attribute>
-                          <img src="{images/item/image/@url}" alt="{image/item/image/caption}"/>
+                          <img src="{$root}/image/1/0/500/1/firerestoration.s3.amazonaws.com/{image/filename}" alt="{image/caption}"/>
                           <div class="carousel-caption">
                             <h4><xsl:value-of select="title"/></h4>
                             <p><xsl:value-of select="caption"/></p>

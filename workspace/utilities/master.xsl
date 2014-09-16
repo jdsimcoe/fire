@@ -10,6 +10,7 @@
 <xsl:import href="footer.xsl"/>
 <xsl:import href="contact.xsl"/>
 <xsl:import href="projects.xsl"/>
+<xsl:import href="references.xsl"/>
 <xsl:import href="testimonials.xsl"/>
 <xsl:import href="error.xsl"/>
 
@@ -34,16 +35,13 @@
   <xsl:call-template name="head"/>
 
   <body>
-    <xsl:attribute name="id">
-      <xsl:choose>
-        <xsl:when test="ds-structure-url.slug">
-          <xsl:value-of select="ds-structure-url.slug"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pt1"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
+
+      <xsl:if test="string-length(/data/structure-url/entry/slug)">
+        <xsl:attribute name="id">
+          <xsl:value-of select="/data/structure-url/entry/slug" />
+        </xsl:attribute>
+      </xsl:if>
+
 
 
     <xsl:apply-templates select="data/structure-navigation" mode="main" />
