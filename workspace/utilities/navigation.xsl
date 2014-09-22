@@ -6,7 +6,7 @@
 <xsl:template match="structure-navigation" mode="main">
 
   <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
+    <div>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-fire">
           <span class="sr-only">Toggle navigation</span>
