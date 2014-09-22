@@ -12,17 +12,17 @@ class datasourcestructure_url extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '{$current-path:home}';
     public $dsParamPARAMOUTPUT = array(
         'system:id',
-        'slug'
+        'slug',
+        'parent'
         );
     public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'yes';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamFILTERS = array(
-        '132' => '{$current-path:home}',
+        '124' => '{$pt2:$pt1},references',
         '127' => 'yes',
     );
 
@@ -32,8 +32,7 @@ class datasourcestructure_url extends SectionDatasource
         'slug',
         'parent',
         'content: formatted',
-        'tagline: formatted',
-        'hero'
+        'tagline: formatted'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
@@ -44,14 +43,6 @@ class datasourcestructure_url extends SectionDatasource
                 'path',
                 'title',
                 'slug'
-            )
-        ),
-        'hero' => array(
-            'section_id' => '22',
-            'field_id' => '156',
-            'elements' => array(
-                'caption',
-                'image'
             )
         )
     );
@@ -71,7 +62,7 @@ class datasourcestructure_url extends SectionDatasource
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.0-rc.2',
-            'release-date' => '2014-09-04T23:52:42+00:00'
+            'release-date' => '2014-09-22T20:19:32+00:00'
         );
     }
 

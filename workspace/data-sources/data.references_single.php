@@ -2,22 +2,24 @@
 
 require_once TOOLKIT . '/class.datasource.php';
 
-class datasourcereferences_all extends SectionDatasource
+class datasourcereferences_single extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'references-all';
-		public $dsParamConditionalizer = '(if any of ((if value of ({$pt1}) is (references)), (if value of ({$pt2}) is ())) is (yes))';
+    public $dsParamROOTELEMENT = 'references-single';
+		public $dsParamConditionalizer = '(if any of ((if value of ({$pt1}) is (references)), (if value of ({$pt2}) is not ())) is (yes))';
     public $dsParamORDER = 'desc';
-    public $dsParamPAGINATERESULTS = 'no';
+    public $dsParamPAGINATERESULTS = 'yes';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
+    public $dsParamREQUIREDPARAM = '$pt2:trauma-intervention-program';
     public $dsParamSORT = 'system:id';
+    public $dsParamHTMLENCODE = 'yes';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamFILTERS = array(
-        '172' => 'yes',
+        '165' => '{$pt2:trauma-intervention-program}',
     );
 
     public $dsParamINCLUDEDELEMENTS = array(
@@ -26,7 +28,7 @@ class datasourcereferences_all extends SectionDatasource
         'email',
         'website',
         'phone',
-        'content: unformatted',
+        'content: formatted',
         'logo'
     );
     
@@ -50,13 +52,13 @@ class datasourcereferences_all extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'References: All',
+            'name' => 'References: Single',
             'author' => array(
                 'name' => 'Jonathan Simcoe',
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.0-rc.2',
-            'release-date' => '2014-09-22T16:30:35+00:00'
+            'release-date' => '2014-09-22T16:30:49+00:00'
         );
     }
 

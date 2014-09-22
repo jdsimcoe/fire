@@ -4,38 +4,45 @@
 
 
 <xsl:template name="references">
-
   <xsl:choose>
-    <xsl:when test="string-length($pt2)">
-      <h1>You are Late!</h1>
+    <xsl:when test="string-length($pt2) = 0">
+      <xsl:apply-templates select="/data/references-all" mode="main"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates select="/data/references-all" mode="main"/>
+      <xsl:apply-templates select="/data/references-single/entry" mode="main"/>
     </xsl:otherwise>
   </xsl:choose>
-
 </xsl:template>
 
 
 <xsl:template match="data/references-all" mode="main">
-
   <div class="row">
     <xsl:for-each select="entry">
-      <div class="col-md-6">
-        <div class="img-thumbnail">
+      <div class="reference-entry col-md-6">
+        <a href="{$root}/{$pt1}/{organization/@handle}">
           <h4><xsl:value-of select="organization"/></h4>
-          <h5><em><xsl:value-of select="contact-name"/></em></h5>
-          <div class="content">
-            <xsl:call-template name="truncate">
-              <xsl:with-param name="node" select="content" />
-              <xsl:with-param name="length" select="236" />
-            </xsl:call-template>
-          </div>
-        </div>
+          <hr/>
+          <h5><xsl:value-of select="contact-name"/></h5>
+        </a>
       </div>
     </xsl:for-each>
   </div>
+</xsl:template>
 
+
+<xsl:template match="data/references-single/entry" mode="main">
+  <div class="row">
+    <div class="reference col-md-8 col-md-offset-2">
+      <xsl:value-of select="content" disable-output-escaping="yes"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <br/>
+    <div class="reference-link col-md-8 col-md-offset-2">
+      <a class="btn btn-primary btn-large" href="/references/">&#8592; Back to all References</a>
+    </div>
+  </div>
 </xsl:template>
 
 
