@@ -22,7 +22,7 @@ class datasourcestructure_url extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamFILTERS = array(
-        '124' => '{$pt2:$pt1:references}',
+        '124' => '{$pt2:$pt1}',
         '127' => 'yes',
     );
 
@@ -62,7 +62,7 @@ class datasourcestructure_url extends SectionDatasource
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.0-rc.2',
-            'release-date' => '2014-09-22T23:10:53+00:00'
+            'release-date' => '2014-09-22T23:12:39+00:00'
         );
     }
 
