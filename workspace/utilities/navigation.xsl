@@ -19,35 +19,10 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-fire">
 
         <ul class="top-nav">
-          <li class="hidden-xs">
-            <a href="{$root}"><i class="glyphicon glyphicon-home"></i></a>
-          </li>
           <li class="visible-xs">
             <a href="{$root}">Home</a>
           </li>
           <xsl:apply-templates select="entry" mode="nav"/>
-          <xsl:if test="$cookie-username">
-            <li class="dropdown hidden-xs">
-              <a href="#" data-toggle="dropdown"><i class="glyphicon glyphicon-wrench"></i></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="/symphony/" target="_blank">Symphony</a>
-                </li>
-                <li>
-                  <a href="?debug" target="_blank">Debug</a>
-                </li>
-                <li>
-                  <a href="?profile" target="_blank">Profile</a>
-                </li>
-                <li>
-                  <a href="?logs" target="_blank">Logs</a>
-                </li>
-                <li>
-                  <a href="{$root}/symphony/logout/">Logout</a>
-                </li>
-              </ul>
-            </li>
-          </xsl:if>
         </ul>
 
       </div><!-- /.navbar-collapse -->
@@ -55,6 +30,33 @@
   </nav>
 
 </xsl:template>
+
+
+<xsl:template name="admin-menu">
+  <xsl:if test="$cookie-username">
+    <li class="dropdown hidden-xs">
+      <a href="#" data-toggle="dropdown"><i class="glyphicon glyphicon-wrench"></i></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/symphony/" target="_blank">Symphony</a>
+        </li>
+        <li>
+          <a href="?debug" target="_blank">Debug</a>
+        </li>
+        <li>
+          <a href="?profile" target="_blank">Profile</a>
+        </li>
+        <li>
+          <a href="?logs" target="_blank">Logs</a>
+        </li>
+        <li>
+          <a href="{$root}/symphony/logout/">Logout</a>
+        </li>
+      </ul>
+    </li>
+  </xsl:if>
+</xsl:template>
+
 
 <xsl:template match="structure-navigation" mode="sub">
 
