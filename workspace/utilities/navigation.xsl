@@ -106,9 +106,12 @@
 
 
 <xsl:template match="/data/structure-url/entry" mode="tagline">
-
   <xsl:value-of select="tagline" disable-output-escaping="yes"/>
+</xsl:template>
 
+
+<xsl:template match="/data/structure-complex/entry" mode="tagline">
+  <xsl:value-of select="tagline" disable-output-escaping="yes"/>
 </xsl:template>
 
 

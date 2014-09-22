@@ -12,6 +12,9 @@
         <xsl:when test="count(data/structure-url/entry)">
           <xsl:apply-templates select="/data/structure-url/entry" mode="tagline"/>
         </xsl:when>
+        <xsl:when test="string-length(data/structure-url/entry) = 0 and count(data/structure-complex/entry)">
+          <xsl:apply-templates select="/data/structure-complex/entry" mode="tagline"/>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:call-template name="error-tagline"/>
         </xsl:otherwise>
@@ -31,22 +34,6 @@
     <xsl:value-of select="image/item/image"/>
     <xsl:text>');</xsl:text>
   </xsl:attribute>
-
- <!--  <img class="background img-responsive" data-responsimage="{image/item/image}" width="100%" height="600"/> -->
-
-</xsl:template>
-
-
-<xsl:template match="page-data-single/entry" mode="mast">
-  <xsl:value-of select="tagline-masthead" disable-output-escaping="yes"/>
-</xsl:template>
-
-
-<xsl:template match="page-data-single/entry" mode="content">
-
-  <xsl:if test="string-length(content) &gt;= 0">
-    <xsl:value-of select="content" disable-output-escaping="yes" />
-  </xsl:if>
 
 </xsl:template>
 

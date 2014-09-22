@@ -10,6 +10,9 @@
     <xsl:when test="count(structure-url/entry)">
       <xsl:apply-templates select="structure-url/entry" mode="main"/>
     </xsl:when>
+    <xsl:when test="string-length(/data/references-single/entry)">
+      <xsl:apply-templates select="/data/references-single/entry" mode="main"/>
+    </xsl:when>
     <xsl:otherwise>
       <xsl:call-template name="error"/>
     </xsl:otherwise>

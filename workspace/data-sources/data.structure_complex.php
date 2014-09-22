@@ -2,28 +2,23 @@
 
 require_once TOOLKIT . '/class.datasource.php';
 
-class datasourcestructure_url extends SectionDatasource
+class datasourcestructure_complex extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'structure-url';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'structure-complex';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'yes';
     public $dsParamLIMIT = '1';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$current-path:home';
-    public $dsParamPARAMOUTPUT = array(
-        'system:id',
-        'slug',
-        'parent'
-        );
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$pt1:home';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'yes';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamFILTERS = array(
-        '132' => '{$current-path:home}',
+        '124' => '{$pt1:home}',
         '127' => 'yes',
     );
 
@@ -57,13 +52,13 @@ class datasourcestructure_url extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Structure: URL',
+            'name' => 'Structure: Complex',
             'author' => array(
                 'name' => 'Jonathan Simcoe',
                 'website' => 'http://fire.dev',
                 'email' => 'jonathan@simko.io'),
             'version' => 'Symphony 2.5.1',
-            'release-date' => '2014-09-22T23:35:16+00:00'
+            'release-date' => '2014-09-22T23:48:49+00:00'
         );
     }
 

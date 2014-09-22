@@ -35,14 +35,11 @@
   <xsl:call-template name="head"/>
 
   <body>
-
-      <xsl:if test="string-length(/data/structure-url/entry/slug)">
-        <xsl:attribute name="id">
-          <xsl:value-of select="/data/structure-url/entry/slug" />
-        </xsl:attribute>
-      </xsl:if>
-
-
+    <xsl:if test="string-length(/data/structure-url/entry/slug)">
+      <xsl:attribute name="id">
+        <xsl:value-of select="/data/structure-url/entry/slug" />
+      </xsl:attribute>
+    </xsl:if>
 
     <xsl:apply-templates select="data/structure-navigation" mode="main" />
     <xsl:call-template name="jumbotron"/>
