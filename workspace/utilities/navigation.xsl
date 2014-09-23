@@ -4,7 +4,6 @@
 
 
 <xsl:template match="structure-navigation" mode="main">
-
   <nav class="navbar navbar-default" role="navigation">
     <div>
       <div class="navbar-header">
@@ -17,18 +16,15 @@
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapse-fire">
-
         <ul class="top-nav">
           <li class="visible-xs">
             <a href="{$root}">Home</a>
           </li>
           <xsl:apply-templates select="entry" mode="nav"/>
         </ul>
-
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
 </xsl:template>
 
 
@@ -59,19 +55,15 @@
 
 
 <xsl:template match="structure-navigation" mode="sub">
-
-
   <xsl:if test="entry != ''">
     <ul class="subnav nav nav-tabs">
       <xsl:apply-templates select="entry" mode="subnav"/>
     </ul>
   </xsl:if>
-
 </xsl:template>
 
 
 <xsl:template match="structure-navigation/entry" mode="nav">
-
   <xsl:if test="not(parent/item)">
     <li>
       <xsl:if test="$pt1 = slug">
@@ -84,12 +76,10 @@
       </a>
     </li>
   </xsl:if>
-
 </xsl:template>
 
 
 <xsl:template match="structure-navigation/entry" mode="subnav">
-
   <xsl:if test="parent/item/@handle = $pt1">
     <li>
       <xsl:if test="slug = $pt2">
@@ -102,9 +92,7 @@
       </a>
     </li>
   </xsl:if>
-
 </xsl:template>
-
 
 
 <xsl:template match="/data/structure-url/entry" mode="tagline">
