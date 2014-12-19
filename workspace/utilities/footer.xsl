@@ -12,8 +12,8 @@
           <div class="col-md-6">
             <address>
               <strong>FIRE Restoration</strong><br/>
-              PO Box 51<br/>
-              Gladstone, OR 97027<br/>
+              PO Box 2133<br/>
+              Oregon City, OR 97045<br/>
             </address>
           </div>
           <hr class="visible-xs visible-sm"/>

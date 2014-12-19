@@ -19,7 +19,6 @@
     <meta name="keywords" content="" />
     <meta name="author" content="Jonathan Simcoe / Simko.io" />
     <meta name="responsimage" data-server="{$root}/image/2/width/height/anchor/0/uploads/images/filename" data-static="{$workspace}/assets/img/spacer.gif" data-loading="{$workspace}/assets/img/loading.gif" />
-
     <link rel="dns-prefetch" href="{$root}" />
     <link rel="dns-prefetch" href="//www.google-analytics.com"/>
     <link rel="dns-prefetch" href="//use.typekit.net" />
